@@ -1,0 +1,54 @@
+{
+  "checkout": {
+    "integrationType": "EmbeddedCheckout",
+    "url": "http://192.168.64.2/netspayment",
+    "termsurl": "http://192.168.64.2/netspayment/terms.html",
+    "merchantHandlesConsumerData": false,
+    "consumerType": {
+        "supportedTypes": ["B2B", "B2C"]
+        },
+	  "appearance": {
+        "displayOptions": {
+            "showMerchantName": false,
+            "showOrderSummary": true
+        },
+        "textOptions": {
+          "completePaymentButtonText": "accept"
+      }
+    }
+  },
+  "order": {
+    "items": [
+      {
+        "reference": "ref42",
+        "name": "Demo product",
+        "quantity": 2,
+        "unit": "hours",
+        "unitPrice": 80000,
+        "grossTotalAmount": 160000,
+        "netTotalAmount": 160000
+      }
+    ],
+    "amount": 160000,
+    "currency": "SEK",
+    "reference": "Demo Order"
+  },
+
+  "notifications": {
+    "webhooks": [
+       {
+          "eventName": "payment.created",
+          "url": "https://192.168.64.2/netspayment/webhooks-endpoint.php",
+          "authorization": "923d2c5c2403407bbfceba99ff214115"
+       },
+       {
+          "eventName": "payment.checkout.completed",
+          "url": "https://192.168.64.2/netspayment/webhooks-endpoint.php",
+          "authorization": "923d2c5c2403407bbfceba99ff214115"
+       }
+    ]
+ }
+
+}
+
+
